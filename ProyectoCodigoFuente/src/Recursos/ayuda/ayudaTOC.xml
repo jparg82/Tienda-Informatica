@@ -1,0 +1,17 @@
+<?xml version="1.0"  ?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+
+<!--<toc version="2.0">-->
+<toc version="2.0" topicimage="documentoAyuda">
+ <tocitem text="CompuSoft">
+  <tocitem text="Introducion" target="index"/>
+   <tocitem text="Menu Principal" target="MenuPrincipal"/>
+   <tocitem text="Gestion de Clientes" target="gestionClientes"/>
+   <tocitem text="Gestion de Empleados" target="gestionEmpleados"/>
+   <tocitem text="Gestion de Compras" target="gestionCompras"/>
+   <tocitem text="Gestion de Reparaciones" target="gestionReparaciones"/>
+   <tocitem text="Gestion de Articulos" target="gestionArticulos"/>
+   <tocitem text="Gestion de Acciones" target="gestionAcciones"/>
+  </tocitem>
+  
+</toc>

@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Compras1" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NCompra" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT co.numero_compra,co.fecha,c.nombre,c.apellidos, l.cantidad, a.nombre as ariculo, l.cantidad*a.precio as totalArticulo, a.precio, c.dni_cliente FROM compra co, clientes c, lineas_detalles l, articulos a
+WHERE co.id_cliente=c.id_cliente  and co.numero_compra=$P{NCompra} and l.numero_compra=$P{NCompra} and l.Id_articulo=a.Id_articulo]]>
+	</queryString>
+	<field name="numero_compra" class="java.lang.Integer"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="apellidos" class="java.lang.String"/>
+	<field name="cantidad" class="java.lang.Integer"/>
+	<field name="ariculo" class="java.lang.String"/>
+	<field name="totalArticulo" class="java.lang.Double"/>
+	<field name="precio" class="java.lang.Float"/>
+	<field name="dni_cliente" class="java.lang.String"/>
+	<variable name="subtotal" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalArticulo}]]></variableExpression>
+	</variable>
+	<variable name="total" class="java.lang.Double" calculation="Sum">
+		<variableExpression><![CDATA[$F{totalArticulo}*1.16]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="42" splitType="Stretch">
+			<staticText>
+				<reportElement x="187" y="4" width="187" height="35"/>
+				<textElement>
+					<font size="24" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Factura Compra]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="202" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement key="rectangle-6" x="10" y="11" width="535" height="93" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement key="localidad-1" x="226" y="49" width="301" height="13" forecolor="#010101" backcolor="#9999FF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Aguadulce - Roquetas de Mar - 04720 - ALMERÍA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="direccion-1" x="226" y="36" width="301" height="13" forecolor="#010101" backcolor="#9999FF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[c/ Alhambra nº 11]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="mail-1" x="226" y="75" width="301" height="13" forecolor="#010101" backcolor="#9999FF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[contacto@sidai.com]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="cif-1" x="226" y="24" width="301" height="13" forecolor="#010101" backcolor="#9999FF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[CIF: 12345678A]]></text>
+			</staticText>
+			<staticText>
+				<reportElement key="telefono-1" x="226" y="62" width="301" height="13" forecolor="#010101" backcolor="#9999FF"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Tel. +34 950112233 - Fax +34 950112234]]></text>
+			</staticText>
+			<rectangle radius="10">
+				<reportElement x="10" y="122" width="535" height="58" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="374" y="132" width="40" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="158" width="52" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Nombre:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="132" width="113" height="17"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Numero de Compra:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="149" y="132" width="100" height="17"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{numero_compra}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd-MMM-yyyy">
+				<reportElement x="414" y="132" width="100" height="17"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="239" y="158" width="61" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="158" width="100" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{apellidos}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="352" y="158" width="57" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Apellidos:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="36" y="158" width="25" height="15"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[DNI:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="61" y="158" width="100" height="15"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{dni_cliente}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="36" y="25" width="82" height="66"/>
+				<imageExpression><![CDATA[ getClass().getResource("/Recursos/Imagenes/logo3.jpeg")]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="55" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="10" y="11" width="535" height="35" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="148" y="18" width="82" height="20"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Articulo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="18" width="111" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Numero de Compra]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="253" y="18" width="60" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="460" y="18" width="79" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio Total]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="336" y="18" width="100" height="20"/>
+				<textElement textAlignment="Center">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Precio unitario]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="44" splitType="Stretch">
+			<textField>
+				<reportElement x="14" y="10" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{numero_compra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="148" y="10" width="95" height="20"/>
+				<textElement/>
+				<textFieldExpression><![CDATA[$F{ariculo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="253" y="10" width="64" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{cantidad}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.0" isBlankWhenNull="false">
+				<reportElement x="336" y="10" width="100" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{precio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.0">
+				<reportElement x="460" y="10" width="79" height="20"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{totalArticulo}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="14" y="35" width="531" height="1"/>
+				<graphicElement>
+					<pen lineStyle="Dotted"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="1" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="39" splitType="Stretch">
+			<textField>
+				<reportElement x="352" y="0" width="74" height="20"/>
+				<textElement textAlignment="Right">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="426" y="0" width="54" height="20"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="110" splitType="Stretch">
+			<rectangle radius="10">
+				<reportElement x="374" y="15" width="171" height="85" backcolor="#CCCCCC"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="385" y="23" width="51" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Subtotal:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="53" width="51" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IVA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="385" y="79" width="51" height="15"/>
+				<textElement textAlignment="Right">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField pattern="¤ #,##0.0">
+				<reportElement x="460" y="23" width="59" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{subtotal}]]></textFieldExpression>
+			</textField>
+			<textField pattern="¤ #,##0.0">
+				<reportElement x="460" y="79" width="59" height="15"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA[$V{total}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="460" y="53" width="59" height="15"/>
+				<textElement textAlignment="Right"/>
+				<text><![CDATA[16%]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

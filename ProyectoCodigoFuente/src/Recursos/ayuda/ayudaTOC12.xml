@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE toc PUBLIC "-//Sun Microsystems Inc.//DTD JavaHelp TOC Version 1.0//EN" "http://java.sun.com/products/javahelp/toc_2_0.dtd">
+
+<!--<toc version="2.0">-->
+<toc version="2.0" topicimage="documento">
+ <tocitem text="Generador de Informes">
+  <tocitem text="Introducción" target="index"/>
+  <tocitem text="Informes" target="tiposInforme" image="carpeta">
+   <tocitem text="Informe Desglose de actividades por socio" target="informe_1"/>
+   <tocitem text="Informe Numeros de socios por actividad" target="informe_2"/>
+   <tocitem text="Informe Tabla de Referencias Cruzadas" target="informe_3"/>
+   <tocitem text="Informe Grupos agrupados por monitor" target="informe_4"/>
+   <tocitem text="IInforme Maestro-Detalle" target="informe_5"/>
+  </tocitem>
+  <tocitem text="Formatos" target="formatos"/>
+ </tocitem>
+</toc>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0" xmlns="http://java.sun.com/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_1_0.xsd">
+  <persistence-unit name="ProyectoDAIPU" transaction-type="RESOURCE_LOCAL">
+    <provider>oracle.toplink.essentials.PersistenceProvider</provider>
+    <class>Modelo.Acciones</class>
+    <class>Modelo.Articulos</class>
+    <class>Modelo.Clientes</class>
+    <class>Modelo.Compra</class>
+    <class>Modelo.Empleados</class>
+    <class>Modelo.LineasDetalles</class>
+    <class>Modelo.Provincias</class>
+    <class>Modelo.Reparaciones</class>
+    <class>Modelo.Usuarios</class>
+    <properties>
+      <property name="toplink.jdbc.user" value="root"/>
+      <property name="toplink.jdbc.password" value="root"/>
+      <property name="toplink.jdbc.url" value="jdbc:mysql://localhost:3306/tiendainformatica"/>
+      <property name="toplink.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+    </properties>
+  </persistence-unit>
+</persistence>
